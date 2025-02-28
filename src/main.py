@@ -3,9 +3,10 @@ import pandas as pd
 import duckdb
 import datetime
 import time
+import os
 from snowflake_connection import cur
 # Set up API details and DuckDB connection
-api_key = 'RGAPI-ddaf216c-35d9-4af8-8749-ba2f95b9eb33'
+api_key = os.getenv("LoL_API_Key")
 game_name = 'BlackInter69'
 tag_line = 'NA1'
 lol_excel = "lol_data.xlsx"
