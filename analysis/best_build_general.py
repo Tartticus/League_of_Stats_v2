@@ -2,6 +2,7 @@ import pandas as pd
 import snowflake.connector
 import inquirer
 import sys
+import os
 
 # External folder for imports
 external_path = os.path.abspath("../src") 
