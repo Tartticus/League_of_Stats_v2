@@ -35,8 +35,8 @@ CREATE TABLE champs (
 CREATE TABLE items (
     match_id NVARCHAR(20) NOT NULL,
     champ_name NVARCHAR(20) NOT NULL,
-    item1 NVARCHAR(20), item2 NVARCHAR(20), item3 NVARCHAR(20), item4 NVARCHAR(20),
-    item5 NVARCHAR(20), item6 NVARCHAR(20), item7 NVARCHAR(20), item8 NVARCHAR(20),
+    item1 NVARCHAR(40), item2 NVARCHAR(40), item3 NVARCHAR(40), item4 NVARCHAR(40),
+    item5 NVARCHAR(40), item6 NVARCHAR(40), item7 NVARCHAR(40), item8 NVARCHAR(40),
     UNIQUE (match_id, champ_name)
 );
 
