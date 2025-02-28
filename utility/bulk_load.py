@@ -2,7 +2,6 @@
 
 import requests
 import pandas as pd
-import duckdb
 import datetime
 import time
 import os
@@ -12,7 +11,7 @@ api_key = os.getenv("LoL_API_Key")
 game_name = 'BlackInter69'
 tag_line = 'NA1'
 lol_excel = "lol_data.xlsx"
-duckdb_conn = duckdb.connect('league_data.db')
+
 
 # Define function to get item data from Data Dragon API
 def get_item_mapping():
