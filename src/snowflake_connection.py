@@ -11,7 +11,7 @@ conn = snowflake.connector.connect(
     account=account, 
     warehouse="COMPUTE_WH",
     database="LEAGUEOFSTATS",
-    schema="PUBLIC"
+    schema="MAIN"
 )
 
 # Create a cursor object
