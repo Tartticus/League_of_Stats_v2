@@ -10,7 +10,7 @@ from snowflake_connection import cur
 # Set up API details and DuckDB connection
 api_key = "RGAPI-1348d576-06d5-4a1f-b940-23dcb4546c63"
 
-game_name = 'Blackinter69'
+game_name = 'Blackinter69'.lower()
 tag_line = 'NA1'
 lol_excel = "lol_data.xlsx"  
 
@@ -34,7 +34,8 @@ def get_puuid():
     headers = {'X-Riot-Token': api_key}
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
-        return response.json().get('puuid')
+         hotdog = response.json().get('puuid')
+         return hotdog
     else:
         print("Error fetching summoner data")
         return None
@@ -82,8 +83,7 @@ def fetch_and_store_match_data():
             # Check if the input is a valid integer
             
             int(count)
-            # Convert the validated integer input to a string
-            count = str(count)
+            
             print(f"Retrieving last {count} games for {game_name}")
             break
         except ValueError:
