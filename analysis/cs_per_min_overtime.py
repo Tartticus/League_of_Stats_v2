@@ -60,3 +60,8 @@ champ_stats =  cur.fetchall()
 columns = [desc[0] for desc in cur.description]
 
 champ_data = pd.DataFrame(data=champ_stats, columns = columns)
+
+
+plot_cs_overtime(champ_data)
+
+plot.show()

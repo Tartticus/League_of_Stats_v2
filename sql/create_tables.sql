@@ -4,12 +4,14 @@ CREATE TABLE matches (
     datetime TIMESTAMP_NTZ,
     game_duration INTEGER,
     game_mode NVARCHAR(20),
+    region NVARCHAR(5)
     PRIMARY KEY (match_id)
 );
 
 CREATE TABLE  player_info (
     match_id NVARCHAR(20) NOT NULL,
     username NVARCHAR(20) NOT NULL,
+    team_id NVARCHAR(15),
     player_champ NVARCHAR(20),
     opposing_champ NVARCHAR(20),
     win BOOLEAN,
@@ -35,8 +37,20 @@ CREATE TABLE champs (
 CREATE TABLE items (
     match_id NVARCHAR(20) NOT NULL,
     champ_name NVARCHAR(20) NOT NULL,
-    item1 NVARCHAR(40), item2 NVARCHAR(40), item3 NVARCHAR(40), item4 NVARCHAR(40),
-    item5 NVARCHAR(40), item6 NVARCHAR(40), item7 NVARCHAR(40), item8 NVARCHAR(40),
+    primary_rune NVARCHAR(20),
+    secondary_rune NVARCHAR(20),
+    item1 NVARCHAR(40), 
+    ,time1(datetime)
+    ,item2 NVARCHAR(40)
+    ,time2(datetime) 
+    item3 NVARCHAR(40)
+    ,time3(datetime) 
+    ,item4 NVARCHAR(40)
+    ,time4 (Datetime)
+    ,item5 NVARCHAR(40) 
+    ,time5 (Datetime)
+    ,item7 NVARCHAR(40)
+    ,item8 (Datetime)
     UNIQUE (match_id, champ_name)
 );
 
@@ -46,6 +60,7 @@ CREATE TABLE champ_stats (
     gold_earned INTEGER,
     kills INTEGER,
     deaths INTEGER,
+    assists INTEGER,
     cs INTEGER,
     vision_score INTEGER,
     UNIQUE (match_id, champ_name)

@@ -5,12 +5,15 @@ import pandas as pd
 import datetime
 import time
 import os
+os.chdir(r'C:\Users\Matth\Projects\League_of_Stats_v2\src')
 from snowflake_connection import cur
 # Set up API details and DuckDB connection
-api_key = os.getenv("LoL_API_Key")
-game_name = 'BlackInter69'
+api_key = "RGAPI-1348d576-06d5-4a1f-b940-23dcb4546c63"
+
+game_name = 'Blackinter69'
 tag_line = 'NA1'
-lol_excel = "lol_data.xlsx"
+lol_excel = "lol_data.xlsx"  
+
 
 
 # Define function to get item data from Data Dragon API
@@ -77,6 +80,7 @@ def fetch_and_store_match_data():
         count = input("\nHow many games would you like to retrieve?\n")
         try:
             # Check if the input is a valid integer
+            
             int(count)
             # Convert the validated integer input to a string
             count = str(count)
@@ -117,8 +121,7 @@ def fetch_and_store_match_data():
         
         game_duration = match_data['info']['gameDuration']
         participant_data = next((p for p in match_data['info']['participants'] if p['puuid'] == puuid), None)
-        if not participant_data:
-            continue
+    
         
         # patch info
         game_version = match_data["info"]["gameVersion"]
@@ -154,9 +157,9 @@ def fetch_and_store_match_data():
         
         # Insert into player_info table
         cur.execute("""
-            INSERT INTO player_info (match_id, username,player_champ, opposing_champ, win, lane_played)
-            VALUES (%s, %s, %s, %s, %s,%s)
-        """, (match_id, game_name, player_champ, opposing_champ, win, lane))
+            INSERT INTO player_info (match_id, username, team_id, player_champ, opposing_champ, win, lane_played)
+            VALUES (%s, %s, %s, %s, %s,%s, %s)
+        """, (match_id, game_name, team_id, player_champ, opposing_champ, win, lane))
         
         # Collect friendly champions
         friend_champs = [p['championName'] for p in match_data['info']['participants'] if p['teamId'] == participant_data['teamId']]
@@ -183,24 +186,25 @@ def fetch_and_store_match_data():
                         item_mapping.get(champ_data.get(f'item{i}', 'Unknown'), 'Unknown')
                         for i in range(8)
                     ]
-
+                    primary_rune, secondary_rune, total_damage = get_runes(match_data)
                     # Insert into items table
                     cur.execute("""
-                        INSERT INTO items (match_id, champ_name, item1, item2, item3, item4, item5, item6, item7, item8)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,%s)
-                    """, (match_id, champ, *items))
+                        INSERT INTO items (match_id, champ_name, primary_rune, secondary_rune, item1, item2, item3, item4, item5, item6, item7, item8)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,%s,%s,%s)
+                    """, (match_id, champ, primary_rune, secondary_rune, *items))
                     
-                    # Extract CS and Vision Score
+                    # Extract CS and Vision Score andd assists
                     gold_earned = champ_data.get("goldEarned", 0)  # Default to 0 if missing
                     cs = champ_data.get("totalMinionsKilled", 0) + champ_data.get("neutralMinionsKilled", 0)  # CS includes jungle creeps
                     vision_score = champ_data.get("visionScore", 0)
                     kills = champ_data.get("kills", 0)
                     deaths = champ_data.get("deaths", 0)
+                    assists = champ_data.get("assists",0)
                     
                     cur.execute("""
-                        INSERT INTO champ_stats (match_id, champ_name, gold_earned, kills, deaths, cs, vision_score)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s)
-                    """, (match_id, champ, gold_earned, kills, deaths, cs, vision_score))
+                        INSERT INTO champ_stats (match_id, champ_name, gold_earned, kills, deaths, assists, cs, vision_score)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                    """, (match_id, champ, gold_earned, kills, deaths, assists, cs, vision_score))
 
         print(f"Inserted match {match_count} out of {count}: {match_id} from {match_datetime}")
         #Api wait section
@@ -211,23 +215,60 @@ def fetch_and_store_match_data():
     print("-----------------------------------------------------")        
     print(f"\n{match_count} Matches inserted for {game_name}\n")
 
+def get_runes(match_data):
+    for p in match_data["info"]["participants"]:
+        champ = p["championName"]
+        primary_rune = [sel["perk"] for sel in p["perks"]["styles"][0]["selections"]]
+        secondary_rune = [sel["perk"] for sel in p["perks"]["styles"][1]["selections"]]
+        damage = p["totalDamageDealtToChampions"]
+        return  primary_rune,secondary_rune,damage
+
+
 
 def main():
     # create tables
-    #ask if wants to reset tables
     global game_name
+    
+     
+    #ask if wants to reset tables
+        
+    
+    
     while True:
         decision = input("Would you like to delete existing table data? y or n?:\n")
         if decision.lower() == 'y':
             print("\nDeleting table data")
+            """
             reset_tables()
+            """
             break
         if decision.lower() == 'n':
             break
         else:
             print("\nPlease enter y or n")
-    game_name = input("\nWhat is your summoner_name?:\n").strip()      
+            
+    game_name = game_name.strip().lower()           
     
+    #Choose server
+    options = ['NA1','EUW','EUE','KR','LPL']
+    print("Please choose one of the following options:\n")
+    for i, option in enumerate(options, 1):
+         print(f"{i}. {option}")
+         
+       
+    while True:  
+         # Prompt the user for input
+        choice = input(" Type the number corresponding to your server\n")
+     
+         # Validate the user's input
+        if not choice.isdigit() or int(choice) < 1 or int(choice) > len(options):
+                 print("Invalid choice. Please try again.")
+             
+        else:
+                selected_option = options[int(choice) - 1]
+                print(f"You selected: {selected_option}\n")    
+                break
+         
     fetch_and_store_match_data()
     
     """ 
