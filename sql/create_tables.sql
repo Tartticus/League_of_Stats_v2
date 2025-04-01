@@ -35,22 +35,22 @@ CREATE TABLE champs (
 );
 
 CREATE TABLE items (
-    match_id NVARCHAR(20) NOT NULL,
-    champ_name NVARCHAR(20) NOT NULL,
-    primary_rune NVARCHAR(20),
-    secondary_rune NVARCHAR(20),
-    item1 NVARCHAR(40), 
-    ,time1(datetime)
+    match_id NVARCHAR(20) NOT NULL
+    ,champ_name NVARCHAR(20) NOT NULL
+    ,primary_rune NVARCHAR(20)
+    ,secondary_rune NVARCHAR(20)
+    ,item1 NVARCHAR(40) 
+    ,time1 TIMESTAMP_NTZ
     ,item2 NVARCHAR(40)
-    ,time2(datetime) 
-    item3 NVARCHAR(40)
-    ,time3(datetime) 
+    ,time2 TIMESTAMP_NTZ
+    ,item3 NVARCHAR(40)
+    ,time3 TIMESTAMP_NTZ
     ,item4 NVARCHAR(40)
-    ,time4 (Datetime)
+    ,time4 TIMESTAMP_NTZ
     ,item5 NVARCHAR(40) 
-    ,time5 (Datetime)
+    ,time5 TIMESTAMP_NTZ
     ,item7 NVARCHAR(40)
-    ,item8 (Datetime)
+    ,item8 TIMESTAMP_NTZ
     UNIQUE (match_id, champ_name)
 );
 
