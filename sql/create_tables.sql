@@ -40,21 +40,21 @@ CREATE TABLE items (
     ,primary_rune NVARCHAR(20)
     ,secondary_rune NVARCHAR(20)
     ,item1 NVARCHAR(40) 
-    ,purchase_time1 TIMESTAMP_NTZ
+    ,purchase_time1 FLOAT
     ,item2 NVARCHAR(40)
-    ,purchase_time2 TIMESTAMP_NTZ
+    ,purchase_time2 FLOAT
     ,item3 NVARCHAR(40)
-    ,purchase_time3 TIMESTAMP_NTZ
+    ,purchase_time3 FLOAT
     ,item4 NVARCHAR(40)
-    ,purchase_time4 TIMESTAMP_NTZ
+    ,purchase_time4 FLOAT
     ,item5 NVARCHAR(40) 
-    ,purchase_time5 TIMESTAMP_NTZ
+    ,purchase_time5 FLOAT
     ,item6 NVARCHAR(40) 
-    ,purchase_time6 TIMESTAMP_NTZ
+    ,purchase_time6 FLOAT
     ,item7 NVARCHAR(40)
-    ,purchase_time7 TIMESTAMP_NTZ
+    ,purchase_time7 FLOAT
     ,item8 NVARCHAR(40) 
-    ,purchase_time8 TIMESTAMP_NTZ
+    ,purchase_time8 FLOAT
     ,UNIQUE (match_id, champ_name)
 );
 
