@@ -51,7 +51,7 @@ CREATE TABLE items (
     ,time5 TIMESTAMP_NTZ
     ,item7 NVARCHAR(40)
     ,item8 TIMESTAMP_NTZ
-    UNIQUE (match_id, champ_name)
+    ,UNIQUE (match_id, champ_name)
 );
 
 CREATE TABLE champ_stats (
