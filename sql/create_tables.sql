@@ -49,8 +49,12 @@ CREATE TABLE items (
     ,time4 TIMESTAMP_NTZ
     ,item5 NVARCHAR(40) 
     ,time5 TIMESTAMP_NTZ
+    ,item6 NVARCHAR(40) 
+    ,time6 TIMESTAMP_NTZ
     ,item7 NVARCHAR(40)
-    ,item8 TIMESTAMP_NTZ
+    ,time7 TIMESTAMP_NTZ
+    ,item8 NVARCHAR(40) 
+    ,time8 TIMESTAMP_NTZ
     ,UNIQUE (match_id, champ_name)
 );
 
