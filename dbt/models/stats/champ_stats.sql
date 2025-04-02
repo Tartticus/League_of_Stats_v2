@@ -1,5 +1,6 @@
 SELECT 
  P.match_id
+ ,M.datetime
 ,username
 ,player_champ
 ,opposing_champ
