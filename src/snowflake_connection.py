@@ -2,8 +2,8 @@ import snowflake.connector
 import os
 #Get password from os var
 
-sign_pass = "VladimirIsGoat69"
-account = "UWA04074.east-us-2.azure"
+sign_pass = os.getenv("passwordLoLstats")
+account =  os.getenv("Snow_Account")
 # Establish connection
 conn = snowflake.connector.connect(
     user="LEAGUEOFSTATS",

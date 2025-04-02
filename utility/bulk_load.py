@@ -104,126 +104,129 @@ def fetch_and_store_match_data():
     #wait count variable for api
     wait_count = 0
     for match_id in match_ids:
-        match_data = get_match_details(match_id)
-        if not match_data:
-            continue
-
-        # Extract general match information
-        match_count += 1
-        wait_count += 1
-        match_datetime = datetime.datetime.fromtimestamp(match_data['info']['gameCreation'] / 1000)
-        
-        
-        # Get the game mode and queue ID
-        raw_game_mode = match_data['info'].get('gameMode', 'Unknown')
-        queue_id = match_data['info'].get('queueId', -1)
-
-        # Set game mode based on queue ID and game mode
-        if raw_game_mode == "CLASSIC":
-            if queue_id in {420, 440}:  # Ranked Solo/Duo or Ranked Flex queue IDs
-                game_mode = "Ranked"
-            else:
-                game_mode = "Norms"
-        else:
-            game_mode = raw_game_mode  # Use raw game mode for non-CLASSIC modes
-        
-        
-        game_duration = match_data['info']['gameDuration']
-        participant_data = next((p for p in match_data['info']['participants'] if p['puuid'] == puuid), None)
-    
-        
-        # patch info
-        game_version = match_data["info"]["gameVersion"]
-        patch_version = ".".join(game_version.split(".")[:2])
-        
-        # Win
-        win = participant_data['win']
-        player_champ = participant_data['championName']
-        lane = participant_data['lane']
-        team_id = participant_data['teamId']
-        
-        
-        # Function to find the opposing champion in the same lane/position
-        opponent_data = next((p for p in match_data['info']['participants'] 
-                      if p['puuid'] != puuid 
-                      and p['lane'] == lane 
-                      and p['teamId'] != team_id), None)
-        
         try:
-            opposing_champ = opponent_data['championName']
+            match_data = get_match_details(match_id)
+            if not match_data:
+                continue
+    
+            # Extract general match information
+            match_count += 1
+            wait_count += 1
+            match_datetime = datetime.datetime.fromtimestamp(match_data['info']['gameCreation'] / 1000)
             
-        except TypeError:
-            #if cant find opposing champ, put unknown
-            opposing_champ = "Unknown"
             
+            # Get the game mode and queue ID
+            raw_game_mode = match_data['info'].get('gameMode', 'Unknown')
+            queue_id = match_data['info'].get('queueId', -1)
+    
+            # Set game mode based on queue ID and game mode
+            if raw_game_mode == "CLASSIC":
+                if queue_id in {420, 440}:  # Ranked Solo/Duo or Ranked Flex queue IDs
+                    game_mode = "Ranked"
+                else:
+                    game_mode = "Norms"
+            else:
+                game_mode = raw_game_mode  # Use raw game mode for non-CLASSIC modes
+            
+            
+            game_duration = match_data['info']['gameDuration']
+            participant_data = next((p for p in match_data['info']['participants'] if p['puuid'] == puuid), None)
         
-        # Insert into matches table dont insert duplicate
-        cur.execute("""
-            INSERT INTO matches (match_id, patch_id, datetime, game_duration, game_mode)
-            VALUES (%s, %s, %s, %s, %s)
-        """, (match_id, patch_version, match_datetime, game_duration, game_mode))
-
-        
-        # Insert into player_info table
-        cur.execute("""
-            INSERT INTO player_info (match_id, username, team_id, player_champ, opposing_champ, win, lane_played)
-            VALUES (%s, %s, %s, %s, %s,%s, %s)
-        """, (match_id, game_name, team_id, player_champ, opposing_champ, win, lane))
-        
-        # Collect friendly champions
-        friend_champs = [p['championName'] for p in match_data['info']['participants'] if p['teamId'] == participant_data['teamId']]
-        friend_champs += [None] * (5 - len(friend_champs))  # Pad to ensure 5 entries
-        
-        #collect enemy champs
-        enemy_champs = [p['championName'] for p in match_data['info']['participants'] if p['teamId'] != participant_data['teamId']]
-        enemy_champs += [None] * (5 - len(friend_champs))  # Pad to ensure 5 entries
-
-        # Insert into champs table
-        cur.execute("""
-            INSERT INTO champs (match_id, friend_champ1, friend_champ2, friend_champ3, friend_champ4, friend_champ5, enemy_champ1, enemy_champ2, enemy_champ3, enemy_champ4, enemy_champ5)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """, (match_id, *friend_champs, *enemy_champs))
-
-        for champ in friend_champs + enemy_champs:
-            if champ:  # Ensure it's not None
-                # Find the participant data for this champion
-                champ_data = next((p for p in match_data['info']['participants'] if p['championName'] == champ), None)
+            
+            # patch info
+            game_version = match_data["info"]["gameVersion"]
+            patch_version = ".".join(game_version.split(".")[:2])
+            
+            # Win
+            win = participant_data['win']
+            player_champ = participant_data['championName']
+            lane = participant_data['lane']
+            team_id = participant_data['teamId']
+            
+            
+            # Function to find the opposing champion in the same lane/position
+            opponent_data = next((p for p in match_data['info']['participants'] 
+                          if p['puuid'] != puuid 
+                          and p['lane'] == lane 
+                          and p['teamId'] != team_id), None)
+            
+            try:
+                opposing_champ = opponent_data['championName']
                 
-                if champ_data:
-                    # Collect items (up to 8)
-                    items = [
-                        item_mapping.get(champ_data.get(f'item{i}', 'Unknown'), 'Unknown')
-                        for i in range(8)
-                    ]
-                    primary_rune, secondary_rune, total_damage = get_runes(match_data)
-                    # Insert into items table
-                    cur.execute("""
-                        INSERT INTO items (match_id, champ_name, primary_rune, secondary_rune, item1, item2, item3, item4, item5, item6, item7, item8)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,%s,%s,%s)
-                    """, (match_id, champ, primary_rune, secondary_rune, *items))
+            except TypeError:
+                #if cant find opposing champ, put unknown
+                opposing_champ = "Unknown"
+                
+            
+            # Insert into matches table dont insert duplicate
+            cur.execute("""
+                INSERT INTO matches (match_id, patch_id, datetime, game_duration, game_mode)
+                VALUES (%s, %s, %s, %s, %s)
+            """, (match_id, patch_version, match_datetime, game_duration, game_mode))
+    
+            
+            # Insert into player_info table
+            cur.execute("""
+                INSERT INTO player_info (match_id, username, team_id, player_champ, opposing_champ, win, lane_played)
+                VALUES (%s, %s, %s, %s, %s,%s, %s)
+            """, (match_id, game_name, team_id, player_champ, opposing_champ, win, lane))
+            
+            # Collect friendly champions
+            friend_champs = [p['championName'] for p in match_data['info']['participants'] if p['teamId'] == participant_data['teamId']]
+            friend_champs += [None] * (5 - len(friend_champs))  # Pad to ensure 5 entries
+            
+            #collect enemy champs
+            enemy_champs = [p['championName'] for p in match_data['info']['participants'] if p['teamId'] != participant_data['teamId']]
+            enemy_champs += [None] * (5 - len(friend_champs))  # Pad to ensure 5 entries
+    
+            # Insert into champs table
+            cur.execute("""
+                INSERT INTO champs (match_id, friend_champ1, friend_champ2, friend_champ3, friend_champ4, friend_champ5, enemy_champ1, enemy_champ2, enemy_champ3, enemy_champ4, enemy_champ5)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """, (match_id, *friend_champs, *enemy_champs))
+    
+            for champ in friend_champs + enemy_champs:
+                if champ:  # Ensure it's not None
+                    # Find the participant data for this champion
+                    champ_data = next((p for p in match_data['info']['participants'] if p['championName'] == champ), None)
                     
-                    # Extract CS and Vision Score andd assists
-                    gold_earned = champ_data.get("goldEarned", 0)  # Default to 0 if missing
-                    cs = champ_data.get("totalMinionsKilled", 0) + champ_data.get("neutralMinionsKilled", 0)  # CS includes jungle creeps
-                    vision_score = champ_data.get("visionScore", 0)
-                    kills = champ_data.get("kills", 0)
-                    deaths = champ_data.get("deaths", 0)
-                    assists = champ_data.get("assists",0)
-                    
-                    cur.execute("""
-                        INSERT INTO champ_stats (match_id, champ_name, gold_earned, kills, deaths, assists, cs, vision_score)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-                    """, (match_id, champ, gold_earned, kills, deaths, assists, cs, vision_score))
-
-        print(f"Inserted match {match_count} out of {count}: {match_id} from {match_datetime}")
-        #Api wait section
-        if wait_count == 25 and match_count != count:
-            print("\nWaiting 15 sec for api rate limit...\n")
-            time.sleep(15)
-            wait_count = 0
+                    if champ_data:
+                        # Collect items (up to 8)
+                        items = [
+                            item_mapping.get(champ_data.get(f'item{i}', 'Unknown'), 'Unknown')
+                            for i in range(8)
+                        ]
+                        primary_rune, secondary_rune, total_damage = get_runes(match_data)
+                        # Insert into items table
+                        cur.execute("""
+                            INSERT INTO items (match_id, champ_name, primary_rune, secondary_rune, item1, item2, item3, item4, item5, item6, item7, item8)
+                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s,%s,%s,%s)
+                        """, (match_id, champ, primary_rune, secondary_rune, *items))
+                        
+                        # Extract CS and Vision Score andd assists
+                        gold_earned = champ_data.get("goldEarned", 0)  # Default to 0 if missing
+                        cs = champ_data.get("totalMinionsKilled", 0) + champ_data.get("neutralMinionsKilled", 0)  # CS includes jungle creeps
+                        vision_score = champ_data.get("visionScore", 0)
+                        kills = champ_data.get("kills", 0)
+                        deaths = champ_data.get("deaths", 0)
+                        assists = champ_data.get("assists",0)
+                        
+                        cur.execute("""
+                            INSERT INTO champ_stats (match_id, champ_name, gold_earned, kills, deaths, assists, cs, vision_score)
+                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                        """, (match_id, champ, gold_earned, kills, deaths, assists, cs, vision_score))
+    
+            print(f"Inserted match {match_count} out of {count}: {match_id} from {match_datetime}")
+            #Api wait section
+            if wait_count == 25 and match_count != count:
+                print("\nWaiting 15 sec for api rate limit...\n")
+                time.sleep(15)
+                wait_count = 0
+        except Exception as e:
+            print(f"Failure to insert {match_id}: {e}")
     print("-----------------------------------------------------")        
     print(f"\n{match_count} Matches inserted for {game_name}\n")
-
+                                        
 def get_runes(match_data):
     rune_mapping = load_rune_mapping()
     for p in match_data["info"]["participants"]:

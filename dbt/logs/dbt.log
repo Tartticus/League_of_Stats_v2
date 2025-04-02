@@ -1,0 +1,294 @@
+[0m18:42:03.780262 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024C666B0830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024C681E2E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024C683B3ED0>]}
+
+
+============================== 18:42:03.789718 | 25d45adc-4d71-465c-9297-c5e5cd7bfa78 ==============================
+[0m18:42:03.789718 [info ] [MainThread]: Running with dbt=1.9.2
+[0m18:42:03.790121 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\Matth\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'invocation_command': 'dbt run --select win_rate', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:42:03.790799 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\Matth\Projects\League_of_Stats_v2\dbt\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:42:03.791789 [debug] [MainThread]: Command `dbt run` failed at 18:42:03.791689 after 0.09 seconds
+[0m18:42:03.791999 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024C6828F950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024C682C6B10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024C682DCF30>]}
+[0m18:42:03.792202 [debug] [MainThread]: Flushing usage events
+[0m18:42:04.015671 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:46:33.985031 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218E3D00830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218E58E2E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218E5AB3ED0>]}
+
+
+============================== 18:46:33.987700 | e21f4bc0-80c7-41d4-a6c5-cdd3ce26ad38 ==============================
+[0m18:46:33.987700 [info ] [MainThread]: Running with dbt=1.9.2
+[0m18:46:33.988141 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Matth\\.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'C:\\Users\\Matth\\Projects\\League_of_Stats_v2\\dbt\\logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt run --select win_rate', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:46:33.989771 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Could not find profile named 'my_dbt_project'
+[0m18:46:33.990338 [debug] [MainThread]: Command `dbt run` failed at 18:46:33.990257 after 0.12 seconds
+[0m18:46:33.990556 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218E598FA80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218E59C6D50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000218E59DD040>]}
+[0m18:46:33.990791 [debug] [MainThread]: Flushing usage events
+[0m18:46:34.226516 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:48:24.290765 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028847EB0830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000288489E2E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028848BB3ED0>]}
+
+
+============================== 18:48:24.293368 | 8950de6a-f1f2-4670-a708-4bd1d4e12847 ==============================
+[0m18:48:24.293368 [info ] [MainThread]: Running with dbt=1.9.2
+[0m18:48:24.293796 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'C:\\Users\\Matth\\Projects\\League_of_Stats_v2\\dbt\\logs', 'profiles_dir': 'C:\\Users\\Matth\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt run --select win_rate', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m18:48:24.657721 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `data-paths` config has been renamed to `seed-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m18:48:24.658125 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '8950de6a-f1f2-4670-a708-4bd1d4e12847', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887A2CD220>]}
+[0m18:48:24.741009 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8950de6a-f1f2-4670-a708-4bd1d4e12847', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887A3596A0>]}
+[0m18:48:24.775800 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8950de6a-f1f2-4670-a708-4bd1d4e12847', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887A2B7A50>]}
+[0m18:48:24.776551 [info ] [MainThread]: Registered adapter: snowflake=1.9.1
+[0m18:48:25.089720 [debug] [MainThread]: checksum: 12b12750b70de726cfd89136b8e24afc3f3e77597a97bff40ab7e5f9b39d5e18, vars: {}, profile: , target: , version: 1.9.2
+[0m18:48:25.090366 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m18:48:25.090683 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '8950de6a-f1f2-4670-a708-4bd1d4e12847', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887A5D63F0>]}
+[0m18:48:26.476374 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8950de6a-f1f2-4670-a708-4bd1d4e12847', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887A625470>]}
+[0m18:48:26.524911 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\Matth\Projects\League_of_Stats_v2\dbt\target\manifest.json
+[0m18:48:26.532674 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\Matth\Projects\League_of_Stats_v2\dbt\target\semantic_manifest.json
+[0m18:48:26.754619 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8950de6a-f1f2-4670-a708-4bd1d4e12847', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887A741F30>]}
+[0m18:48:26.756072 [info ] [MainThread]: Found 1 model, 472 macros
+[0m18:48:26.758388 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8950de6a-f1f2-4670-a708-4bd1d4e12847', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887A8D1910>]}
+[0m18:48:26.763949 [info ] [MainThread]: 
+[0m18:48:26.764812 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m18:48:26.767436 [info ] [MainThread]: 
+[0m18:48:26.770354 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m18:48:26.775062 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LEAGUEOFSTATS'
+[0m18:48:27.891880 [debug] [ThreadPool]: Using snowflake connection "list_LEAGUEOFSTATS"
+[0m18:48:27.892646 [debug] [ThreadPool]: On list_LEAGUEOFSTATS: /* {"app": "dbt", "dbt_version": "1.9.2", "profile_name": "my_dbt_profile", "target_name": "dev", "connection_name": "list_LEAGUEOFSTATS"} */
+show terse schemas in database LEAGUEOFSTATS
+    limit 10000
+[0m18:48:27.893481 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m18:48:28.210269 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.9.2", "profile_name": "my_dbt_profile", "target_name": "dev", "connection_name": "list_LEAGUEOFSTATS"} */
+show terse schemas in database LEAGUEOFSTATS
+    limit 10000
+[0m18:48:28.210541 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m18:48:28.210753 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_schemas
+[0m18:48:28.210916 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m18:48:28.211560 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m18:48:28.211786 [debug] [MainThread]: Connection 'list_LEAGUEOFSTATS' was left open.
+[0m18:48:28.211953 [debug] [MainThread]: On list_LEAGUEOFSTATS: No close available on handle
+[0m18:48:28.212285 [info ] [MainThread]: 
+[0m18:48:28.212774 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 1.44 seconds (1.44s).
+[0m18:48:28.213333 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Database error while listing schemas in database "LEAGUEOFSTATS"
+  Database Error
+    250001 (08001): Failed to connect to DB: UWA04074.east-us-2.azure.snowflakecomputing.com:443. Incorrect username or password was specified.
+[0m18:48:28.214259 [debug] [MainThread]: Command `dbt run` failed at 18:48:28.214132 after 4.00 seconds
+[0m18:48:28.214610 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887A924680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887AE2A2B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002887AE29EF0>]}
+[0m18:48:28.214980 [debug] [MainThread]: Flushing usage events
+[0m18:48:28.571809 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:49:00.405573 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A4D5B0830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A4F0E2E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A4F2B3ED0>]}
+
+
+============================== 18:49:00.408309 | d328402d-2dbf-4fbd-98db-43c3f4524a39 ==============================
+[0m18:49:00.408309 [info ] [MainThread]: Running with dbt=1.9.2
+[0m18:49:00.408784 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'C:\\Users\\Matth\\Projects\\League_of_Stats_v2\\dbt\\logs', 'profiles_dir': 'C:\\Users\\Matth\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --select win_rate', 'send_anonymous_usage_stats': 'True'}
+[0m18:49:00.781196 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `data-paths` config has been renamed to `seed-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m18:49:00.781723 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'd328402d-2dbf-4fbd-98db-43c3f4524a39', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A7F8CD220>]}
+[0m18:49:00.867505 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd328402d-2dbf-4fbd-98db-43c3f4524a39', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A7F9596A0>]}
+[0m18:49:00.905786 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd328402d-2dbf-4fbd-98db-43c3f4524a39', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A7F8B7A50>]}
+[0m18:49:00.906541 [info ] [MainThread]: Registered adapter: snowflake=1.9.1
+[0m18:49:01.084113 [debug] [MainThread]: checksum: 12b12750b70de726cfd89136b8e24afc3f3e77597a97bff40ab7e5f9b39d5e18, vars: {}, profile: , target: , version: 1.9.2
+[0m18:49:01.155711 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m18:49:01.156038 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m18:49:01.169537 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd328402d-2dbf-4fbd-98db-43c3f4524a39', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A7FD7C410>]}
+[0m18:49:01.198887 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\Matth\Projects\League_of_Stats_v2\dbt\target\manifest.json
+[0m18:49:01.201723 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\Matth\Projects\League_of_Stats_v2\dbt\target\semantic_manifest.json
+[0m18:49:01.213120 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd328402d-2dbf-4fbd-98db-43c3f4524a39', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A7FE82510>]}
+[0m18:49:01.213404 [info ] [MainThread]: Found 1 model, 472 macros
+[0m18:49:01.213694 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd328402d-2dbf-4fbd-98db-43c3f4524a39', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A7FE51090>]}
+[0m18:49:01.214487 [info ] [MainThread]: 
+[0m18:49:01.214798 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m18:49:01.215148 [info ] [MainThread]: 
+[0m18:49:01.215458 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m18:49:01.216040 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LEAGUEOFSTATS'
+[0m18:49:01.250345 [debug] [ThreadPool]: Using snowflake connection "list_LEAGUEOFSTATS"
+[0m18:49:01.251060 [debug] [ThreadPool]: On list_LEAGUEOFSTATS: /* {"app": "dbt", "dbt_version": "1.9.2", "profile_name": "my_dbt_profile", "target_name": "dev", "connection_name": "list_LEAGUEOFSTATS"} */
+show terse schemas in database LEAGUEOFSTATS
+    limit 10000
+[0m18:49:01.251219 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m18:50:42.438004 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.9.2", "profile_name": "my_dbt_profile", "target_name": "dev", "connection_name": "list_LEAGUEOFSTATS"} */
+show terse schemas in database LEAGUEOFSTATS
+    limit 10000
+[0m18:50:42.438360 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m18:50:42.438609 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_schemas
+[0m18:50:42.438877 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m18:50:42.441013 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m18:50:42.441374 [debug] [MainThread]: Connection 'list_LEAGUEOFSTATS' was left open.
+[0m18:50:42.441737 [debug] [MainThread]: On list_LEAGUEOFSTATS: No close available on handle
+[0m18:50:42.442049 [info ] [MainThread]: 
+[0m18:50:42.442545 [info ] [MainThread]: Finished running  in 0 hours 1 minutes and 41.23 seconds (101.23s).
+[0m18:50:42.443071 [error] [MainThread]: Encountered an error:
+
+[0m18:50:42.462324 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 153, in wrapper
+    result, success = func(*args, **kwargs)
+                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 235, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 264, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 328, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\main.py", line 578, in run
+    results = task.run()
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\task\runnable.py", line 588, in run
+    result = self.execute_with_hooks(selected_uids)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\task\runnable.py", line 526, in execute_with_hooks
+    before_run_status = self.before_run(adapter, selected_uids)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\task\run.py", line 994, in before_run
+    self.create_schemas(adapter, required_schemas)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\task\runnable.py", line 694, in create_schemas
+    for ls_future in as_completed(list_futures):
+                     ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.752.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 243, in as_completed
+    waiter.event.wait(wait_timeout)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.752.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 659, in wait
+    signaled = self._cond.wait(timeout)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.752.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 359, in wait
+    waiter.acquire()
+    ~~~~~~~~~~~~~~^^
+KeyboardInterrupt
+
+[0m18:50:42.463704 [debug] [MainThread]: Command `dbt run` failed at 18:50:42.463441 after 102.15 seconds
+[0m18:50:42.463965 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A4DFD7A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A7FE354F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019A00277330>]}
+[0m18:50:42.464186 [debug] [MainThread]: Flushing usage events
+[0m18:50:42.828478 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:51:15.354488 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCF4310830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCF4E42E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCF60B3ED0>]}
+
+
+============================== 18:51:15.357328 | 2f753c0d-edec-4315-98a8-0f8bc3220c4c ==============================
+[0m18:51:15.357328 [info ] [MainThread]: Running with dbt=1.9.2
+[0m18:51:15.357726 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Matth\\.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'C:\\Users\\Matth\\Projects\\League_of_Stats_v2\\dbt\\logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run --select win_rate', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:51:15.845592 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2f753c0d-edec-4315-98a8-0f8bc3220c4c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCA68809D0>]}
+[0m18:51:15.881666 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2f753c0d-edec-4315-98a8-0f8bc3220c4c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCA6759590>]}
+[0m18:51:15.882465 [info ] [MainThread]: Registered adapter: snowflake=1.9.1
+[0m18:51:16.047254 [debug] [MainThread]: checksum: 12b12750b70de726cfd89136b8e24afc3f3e77597a97bff40ab7e5f9b39d5e18, vars: {}, profile: , target: , version: 1.9.2
+[0m18:51:16.083622 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m18:51:16.085561 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '2f753c0d-edec-4315-98a8-0f8bc3220c4c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCA6AADC50>]}
+[0m18:51:16.611657 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2f753c0d-edec-4315-98a8-0f8bc3220c4c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCA69D73E0>]}
+[0m18:51:16.642685 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\Matth\Projects\League_of_Stats_v2\dbt\target\manifest.json
+[0m18:51:16.645444 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\Matth\Projects\League_of_Stats_v2\dbt\target\semantic_manifest.json
+[0m18:51:16.657457 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2f753c0d-edec-4315-98a8-0f8bc3220c4c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCA6CE2CF0>]}
+[0m18:51:16.657850 [info ] [MainThread]: Found 1 model, 472 macros
+[0m18:51:16.658650 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2f753c0d-edec-4315-98a8-0f8bc3220c4c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCA6AD28F0>]}
+[0m18:51:16.660149 [info ] [MainThread]: 
+[0m18:51:16.660624 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m18:51:16.661708 [info ] [MainThread]: 
+[0m18:51:16.662405 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m18:51:16.663482 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LEAGUEOFSTATS'
+[0m18:51:16.698850 [debug] [ThreadPool]: Using snowflake connection "list_LEAGUEOFSTATS"
+[0m18:51:16.699111 [debug] [ThreadPool]: On list_LEAGUEOFSTATS: /* {"app": "dbt", "dbt_version": "1.9.2", "profile_name": "my_dbt_profile", "target_name": "dev", "connection_name": "list_LEAGUEOFSTATS"} */
+show terse schemas in database LEAGUEOFSTATS
+    limit 10000
+[0m18:51:16.699266 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m18:52:57.881627 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.9.2", "profile_name": "my_dbt_profile", "target_name": "dev", "connection_name": "list_LEAGUEOFSTATS"} */
+show terse schemas in database LEAGUEOFSTATS
+    limit 10000
+[0m18:52:57.881933 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m18:52:57.882167 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_schemas
+[0m18:52:57.882329 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m18:52:57.883041 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m18:52:57.883407 [debug] [MainThread]: Connection 'list_LEAGUEOFSTATS' was left open.
+[0m18:52:57.883702 [debug] [MainThread]: On list_LEAGUEOFSTATS: No close available on handle
+[0m18:52:57.883984 [info ] [MainThread]: 
+[0m18:52:57.884485 [info ] [MainThread]: Finished running  in 0 hours 1 minutes and 41.22 seconds (101.22s).
+[0m18:52:57.885064 [error] [MainThread]: Encountered an error:
+
+[0m18:52:57.888434 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 153, in wrapper
+    result, success = func(*args, **kwargs)
+                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 235, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 264, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\requires.py", line 328, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\cli\main.py", line 578, in run
+    results = task.run()
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\task\runnable.py", line 588, in run
+    result = self.execute_with_hooks(selected_uids)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\task\runnable.py", line 526, in execute_with_hooks
+    before_run_status = self.before_run(adapter, selected_uids)
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\task\run.py", line 994, in before_run
+    self.create_schemas(adapter, required_schemas)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Matth\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\dbt\task\runnable.py", line 694, in create_schemas
+    for ls_future in as_completed(list_futures):
+                     ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.752.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 243, in as_completed
+    waiter.event.wait(wait_timeout)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.752.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 659, in wait
+    signaled = self._cond.wait(timeout)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.752.0_x64__qbz5n2kfra8p0\Lib\threading.py", line 359, in wait
+    waiter.acquire()
+    ~~~~~~~~~~~~~~^^
+KeyboardInterrupt
+
+[0m18:52:57.890198 [debug] [MainThread]: Command `dbt run` failed at 18:52:57.890001 after 102.64 seconds
+[0m18:52:57.890739 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCF4D37A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCA6D81B20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BCA81978B0>]}
+[0m18:52:57.891224 [debug] [MainThread]: Flushing usage events
+[0m18:52:58.228795 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:54:18.402571 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AC71B0830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AC7CE2E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AC7EB3ED0>]}
+
+
+============================== 18:54:18.405327 | 435d705a-5aa0-4a4e-a2c6-6097eb83baa0 ==============================
+[0m18:54:18.405327 [info ] [MainThread]: Running with dbt=1.9.2
+[0m18:54:18.405716 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Matth\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\Matth\\Projects\\League_of_Stats_v2\\dbt\\logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt run --select win_rate', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:54:18.849423 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '435d705a-5aa0-4a4e-a2c6-6097eb83baa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AF97809D0>]}
+[0m18:54:18.883877 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '435d705a-5aa0-4a4e-a2c6-6097eb83baa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AF9659590>]}
+[0m18:54:18.884615 [info ] [MainThread]: Registered adapter: snowflake=1.9.1
+[0m18:54:19.054289 [debug] [MainThread]: checksum: 12b12750b70de726cfd89136b8e24afc3f3e77597a97bff40ab7e5f9b39d5e18, vars: {}, profile: , target: , version: 1.9.2
+[0m18:54:19.120222 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m18:54:19.120480 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m18:54:19.134024 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '435d705a-5aa0-4a4e-a2c6-6097eb83baa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AF985B350>]}
+[0m18:54:19.162707 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\Matth\Projects\League_of_Stats_v2\dbt\target\manifest.json
+[0m18:54:19.165369 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\Matth\Projects\League_of_Stats_v2\dbt\target\semantic_manifest.json
+[0m18:54:19.176398 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '435d705a-5aa0-4a4e-a2c6-6097eb83baa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AF98D6D50>]}
+[0m18:54:19.176707 [info ] [MainThread]: Found 1 model, 472 macros
+[0m18:54:19.177001 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '435d705a-5aa0-4a4e-a2c6-6097eb83baa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AF9B86190>]}
+[0m18:54:19.177800 [info ] [MainThread]: 
+[0m18:54:19.178083 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m18:54:19.178276 [info ] [MainThread]: 
+[0m18:54:19.178555 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m18:54:19.179154 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LEAGUEOFSTATS'
+[0m18:54:19.214879 [debug] [ThreadPool]: Using snowflake connection "list_LEAGUEOFSTATS"
+[0m18:54:19.215270 [debug] [ThreadPool]: On list_LEAGUEOFSTATS: /* {"app": "dbt", "dbt_version": "1.9.2", "profile_name": "my_dbt_profile", "target_name": "dev", "connection_name": "list_LEAGUEOFSTATS"} */
+show terse schemas in database LEAGUEOFSTATS
+    limit 10000
+[0m18:54:19.215467 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m18:55:21.172920 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.9.2", "profile_name": "my_dbt_profile", "target_name": "dev", "connection_name": "list_LEAGUEOFSTATS"} */
+show terse schemas in database LEAGUEOFSTATS
+    limit 10000
+[0m18:55:21.173243 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m18:55:21.173468 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_schemas
+[0m18:55:21.173635 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m18:55:21.174434 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m18:55:21.174664 [debug] [MainThread]: Connection 'list_LEAGUEOFSTATS' was left open.
+[0m18:55:21.174826 [debug] [MainThread]: On list_LEAGUEOFSTATS: No close available on handle
+[0m18:55:21.174988 [info ] [MainThread]: 
+[0m18:55:21.175290 [info ] [MainThread]: Finished running  in 0 hours 1 minutes and 2.00 seconds (62.00s).
+[0m18:55:21.175684 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Database error while listing schemas in database "LEAGUEOFSTATS"
+  Database Error
+    250001 (08001): Failed to connect to DB: UWA04074.east-us-2.azure.snowflakecomputing.com:443. User is locked from Duo Security. Contact your local system administrator.
+[0m18:55:21.176543 [debug] [MainThread]: Command `dbt run` failed at 18:55:21.176463 after 62.87 seconds
+[0m18:55:21.176776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AF9D417E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AC7BD7A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014AF9FCAF90>]}
+[0m18:55:21.177027 [debug] [MainThread]: Flushing usage events
+[0m18:55:21.529056 [debug] [MainThread]: An error was encountered while trying to flush usage events
