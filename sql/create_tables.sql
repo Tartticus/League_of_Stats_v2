@@ -2,9 +2,9 @@ CREATE TABLE matches (
     match_id NVARCHAR(20) NOT NULL,
     patch_id NVARCHAR(20),
     datetime TIMESTAMP_NTZ,
-    game_duration INTEGER,
+    game_duration FLOAT,
     game_mode NVARCHAR(20),
-    region NVARCHAR(5)
+    region NVARCHAR(5),
     PRIMARY KEY (match_id)
 );
 
@@ -35,23 +35,27 @@ CREATE TABLE champs (
 );
 
 CREATE TABLE items (
-    match_id NVARCHAR(20) NOT NULL,
-    champ_name NVARCHAR(20) NOT NULL,
-    primary_rune NVARCHAR(20),
-    secondary_rune NVARCHAR(20),
-    item1 NVARCHAR(40), 
-    ,time1(datetime)
+    match_id NVARCHAR(20) NOT NULL
+    ,champ_name NVARCHAR(20) NOT NULL
+    ,primary_rune NVARCHAR(20)
+    ,secondary_rune NVARCHAR(20)
+    ,item1 NVARCHAR(40) 
+    ,purchase_time1 FLOAT
     ,item2 NVARCHAR(40)
-    ,time2(datetime) 
-    item3 NVARCHAR(40)
-    ,time3(datetime) 
+    ,purchase_time2 FLOAT
+    ,item3 NVARCHAR(40)
+    ,purchase_time3 FLOAT
     ,item4 NVARCHAR(40)
-    ,time4 (Datetime)
+    ,purchase_time4 FLOAT
     ,item5 NVARCHAR(40) 
-    ,time5 (Datetime)
+    ,purchase_time5 FLOAT
+    ,item6 NVARCHAR(40) 
+    ,purchase_time6 FLOAT
     ,item7 NVARCHAR(40)
-    ,item8 (Datetime)
-    UNIQUE (match_id, champ_name)
+    ,purchase_time7 FLOAT
+    ,item8 NVARCHAR(40) 
+    ,purchase_time8 FLOAT
+    ,UNIQUE (match_id, champ_name)
 );
 
 CREATE TABLE champ_stats (
