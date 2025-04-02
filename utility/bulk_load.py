@@ -1,20 +1,29 @@
 # You can  mass insert games here (includes rate limiting)
-
 import requests
 import pandas as pd
 import datetime
 import time
 import os
-os.chdir(r'C:\Users\Matth\Projects\League_of_Stats_v2\src')
+os.chdir(r'League_of_Stats_v2\src')
 from snowflake_connection import cur
 # Set up API details and DuckDB connection
-api_key = "RGAPI-1348d576-06d5-4a1f-b940-23dcb4546c63"
+api_key = os.getenv(RiotGamesAPIKey)
 
-game_name = 'Blackinter69'
+game_name = 'Blackinter69'.lower()
 tag_line = 'NA1'
 lol_excel = "lol_data.xlsx"  
 
+def load_rune_mapping():
+    url = "https://ddragon.leagueoflegends.com/cdn/14.6.1/data/en_US/runesReforged.json"
+    data = requests.get(url).json()
+    mapping = {}
 
+    for tree in data:
+        for slot in tree['slots']:
+            for perk in slot['runes']:
+                mapping[perk['id']] = perk['name']
+
+    return mapping
 
 # Define function to get item data from Data Dragon API
 def get_item_mapping():
@@ -34,7 +43,8 @@ def get_puuid():
     headers = {'X-Riot-Token': api_key}
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
-        return response.json().get('puuid')
+         hotdog = response.json().get('puuid')
+         return hotdog
     else:
         print("Error fetching summoner data")
         return None
@@ -82,8 +92,7 @@ def fetch_and_store_match_data():
             # Check if the input is a valid integer
             
             int(count)
-            # Convert the validated integer input to a string
-            count = str(count)
+            
             print(f"Retrieving last {count} games for {game_name}")
             break
         except ValueError:
@@ -216,10 +225,14 @@ def fetch_and_store_match_data():
     print(f"\n{match_count} Matches inserted for {game_name}\n")
 
 def get_runes(match_data):
+    rune_mapping = load_rune_mapping()
     for p in match_data["info"]["participants"]:
         champ = p["championName"]
-        primary_rune = [sel["perk"] for sel in p["perks"]["styles"][0]["selections"]]
-        secondary_rune = [sel["perk"] for sel in p["perks"]["styles"][1]["selections"]]
+        primary_rune_id = [sel["perk"] for sel in p["perks"]["styles"][0]["selections"]][0]
+        primary_rune = rune_mapping.get(primary_rune_id, f"Unknown ({primary_rune_id})")
+        
+        secondary_rune_id = [sel["perk"] for sel in p["perks"]["styles"][1]["selections"]][0]
+        secondary_rune = rune_mapping.get(secondary_rune_id, f"Unknown ({secondary_rune_id})")
         damage = p["totalDamageDealtToChampions"]
         return  primary_rune,secondary_rune,damage
 
