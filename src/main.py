@@ -6,12 +6,11 @@ import os
 os.chdir(r'C:\Users\Matth\Projects\League_of_Stats_v2\src')
 from snowflake_connection import cur
 # Set up API details and DuckDB connection
-api_key = "RGAPI-1348d576-06d5-4a1f-b940-23dcb4546c63"
+api_key = "RGAPI-dc8d3436-cb0b-4ac3-b3a2-cba02b9dc0d6"
 
 
-game_name = 'SAMICELASICE'
-tag_line = 'cígoš'
-lol_excel = "lol_data.xlsx"
+game_name = 'BlackInter69'
+tag_line = 'NA1'
 
 
 # Define function to get item data from Data Dragon API
