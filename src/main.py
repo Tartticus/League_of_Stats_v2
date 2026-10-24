@@ -6,7 +6,7 @@ import os
 os.chdir(r'C:\Users\Matth\Projects\League_of_Stats_v2\src')
 from snowflake_connection import cur
 # Set up API details and DuckDB connection
-api_key = "RGAPI-dc8d3436-cb0b-4ac3-b3a2-cba02b9dc0d6"
+api_key = "RGAPI-b459e727-f6d7-4ffe-942f-64d435eb571d"
 
 
 game_name = 'BlackInter69'
