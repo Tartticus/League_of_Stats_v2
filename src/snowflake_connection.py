@@ -1,4 +1,4 @@
-﻿"""Lazy Snowflake connections; importing this module never connects or prints secrets."""
+"""Lazy Snowflake connections; importing this module never connects or prints secrets."""
 import os
 
 
@@ -11,7 +11,7 @@ def connect():
         'database': os.getenv('SNOWFLAKE_DATABASE', 'LEAGUEOFSTATS'),
         'schema': os.getenv('SNOWFLAKE_SCHEMA', 'MAIN'),
     }
-    authenticator = os.getenv('SNOWFLAKE_AUTHENTICATOR', 'snowflake')
+    authenticator = os.getenv('SNOWFLAKE_AUTHENTICATOR', 'externalbrowser')
     settings['authenticator'] = authenticator
     if authenticator != 'externalbrowser':
         settings['password'] = os.getenv('SNOWFLAKE_PASSWORD') or os.getenv('passwordLoLstats')
@@ -38,3 +38,33 @@ class LazyCursor:
 
 
 cur = LazyCursor()
+
+
+def main():
+    print('Checking Snowflake connection...', flush=True)
+    print('Browser authentication opens a login window when configured.', flush=True)
+    try:
+        connection = connect()
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute('SELECT 1')
+                if cursor.fetchone()[0] != 1:
+                    raise RuntimeError('Unexpected connection check result')
+            print('Successfully connected to Snowflake.')
+        finally:
+            connection.close()
+    except ValueError as exc:
+        print(f'Configuration error: {exc}')
+        print('Set SNOWFLAKE_ACCOUNT and SNOWFLAKE_USER in the environment used by VS Code.')
+        raise SystemExit(1) from None
+    except ImportError:
+        print('Missing Snowflake dependency. Run: python -m pip install snowflake-connector-python')
+        raise SystemExit(1) from None
+    except Exception as exc:
+        print(f'Snowflake connection failed ({type(exc).__name__}).')
+        print('Check account, username, authenticator, browser login, and role/database access.')
+        raise SystemExit(1) from None
+
+
+if __name__ == '__main__':
+    main()
